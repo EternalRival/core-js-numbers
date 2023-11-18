@@ -4,9 +4,15 @@
   "description": "Core JS Numbers",
   "main": "index.js",
   "scripts": {
-    "test": "npm run lint && mocha",
-    "lint": "node node_modules/eslint/bin/eslint.js ./src",
-    "lint:fix": "node node_modules/eslint/bin/eslint.js ./src --fix"
+    "test": "mocha",
+    "lint": "npx eslint .",
+    "lint:fix": "npx eslint . --fix",
+    "format:fix": "npx prettier . -luw",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*": "npx prettier -luw",
+    "*.js": "npx eslint"
   },
   "repository": {
     "type": "git",
